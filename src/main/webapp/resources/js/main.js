@@ -10,7 +10,6 @@ let selectedX = null;
 let selectedR = [];
 const clearButton = document.getElementById('clearButton');
 
-
 function updateData() {
     return {
         x: selectedX,
@@ -78,38 +77,6 @@ submitButton.addEventListener('click', (event) => {
         location.href = "table.jsp";
     }
 });
-
-async function sendRequest(x, y, selectedR) {
-    try {
-        const params = new URLSearchParams();
-        params.append('x', x);
-        params.append('y', y);
-        console.log(selectedR);
-        selectedR.forEach(r => params.append('r', r));
-        const response = await fetch(`/lab2/controller?${params}`, {
-            method: 'GET'
-        });
-
-        if (!response.ok) throw new Error(`Ошибка: ${response.status}`);
-
-        return await response.json();
-    } catch (error) {
-        throw new Error(`Ошибка подключения: ${error.message}`);
-    }
-}
-
-function sendToServer(x, y, r) {
-    sendRequest(x, y, r)
-        .then(results => {
-            results.forEach((data) => {
-                let color = data.hit ? 'green' : 'red';
-                drawPoint(x * 20 * 8 / r, -y * 20 * 8 / r, color);
-            })
-        })
-        .catch(err => {
-            alert(err);
-        });
-}
 
 plot.addEventListener('click', (e) => {
     if (selectedR.length !== 1) {

@@ -5,6 +5,7 @@ import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 import ru.kaysiodl.services.response.Result;
 
 import java.io.Serializable;
@@ -15,13 +16,13 @@ import java.util.ArrayList;
 @Named("results")
 @SessionScoped
 public class ResultsBean implements Serializable {
-    ArrayList<Result> results;
+    ArrayList<Result> results = new ArrayList<>();
 
     public void clear() {
-        results = new ArrayList<>();
+        this.results.clear();
     }
 
     public void add(Result result) {
-        results.add(result);
+        this.results.add(result);
     }
 }
