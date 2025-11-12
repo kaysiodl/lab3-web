@@ -1,0 +1,284 @@
+$primary-color: #d48a8a;
+$secondary-color: #f4acb7;
+$accent-color: #ffcad4;
+$background-gradient: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
+$card-gradient: linear-gradient(135deg, #ffefef 0%, #ffecec 100%);
+$button-gradient: linear-gradient(to right, #f4acb7, #ffcad4);
+$shadow-color: rgba(255, 182, 193, 0.2);
+$text-color: #4a4a4a;
+$border-color: #ffd6d6;
+
+@mixin gradient-bg($gradient) {
+  background: $gradient;
+}
+
+@mixin shadow($opacity: 0.2) {
+  box-shadow: 0 5px 15px rgba(255, 182, 193, $opacity);
+}
+
+@mixin card-style {
+  @include gradient-bg($card-gradient);
+  border-radius: 15px;
+  @include shadow;
+  padding: 25px;
+}
+
+@mixin button-style {
+  @include gradient-bg($button-gradient);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: linear-gradient(to right, #e895a1, #f4acb7);
+    transform: translateY(-2px);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  @include gradient-bg($background-gradient);
+  min-height: 100vh;
+  padding: 20px;
+  color: $text-color;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  @include shadow(0.3);
+  padding: 30px;
+}
+
+#header {
+  font-family: monospace;
+  text-align: center;
+  color: $primary-color;
+  font-weight: 500;
+  font-size: 25px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $border-color;
+}
+
+#coordinateSystem {
+  background-color: #fff;
+  border-radius: 15px;
+  @include shadow(0.3);
+  display: block;
+  margin: 70px auto;
+}
+
+#pointForm {
+  @include card-style;
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+.x-button {
+  margin-bottom: 25px;
+  @include button-style;
+  border: 2px solid #ec9da9;
+
+  &:hover {
+    background: linear-gradient(to right, #ec9da9, #f3b0b0);
+  }
+
+  &:active {
+    background: linear-gradient(to right, #c65e6c, #f3b0b0);
+  }
+
+  &.active {
+    background: #c65e6c;
+    color: white;
+    border-color: #c65e6c;
+  }
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: $primary-color;
+  font-weight: 600;
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid $border-color;
+  border-radius: 10px;
+  background-color: #fff;
+  font-size: 16px;
+  color: $text-color;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $secondary-color;
+  }
+}
+
+.input-form {
+  margin-bottom: 40px;
+}
+
+[type="checkbox"] {
+  border-color: $primary-color;
+  font-size: 30px;
+  accent-color: #f4acb7;
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  cursor: pointer;
+
+  &:checked {
+    background-color: $secondary-color;
+    border-color: $primary-color;
+
+    &::after {
+      color: white;
+      position: absolute;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  &:hover {
+    color: $primary-color;
+    accent-color: $secondary-color;
+  }
+}
+
+.navigationButton {
+  @include button-style;
+  color: white;
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+
+  &:hover {
+    @include shadow(0.4);
+  }
+}
+
+#resultsButton{
+  text-decoration: none;
+  text-align:  center;
+}
+
+.back-button {
+  @include button-style;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+
+  &:hover {
+    background: linear-gradient(to right, #e895a1, #f4acb7);
+    transform: translateY(-2px);
+    @include shadow(0.4);
+    text-decoration: none;
+    color: white;
+  }
+
+  &::before {
+    content: "←";
+    font-weight: bold;
+  }
+}
+
+.results {
+  margin-top: 30px;
+  @include card-style;
+
+  h3 {
+    color: $primary-color;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $border-color;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.table {
+  overflow-y: auto;
+  height: 600px;
+
+  &::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $secondary-color;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+}
+
+thead {
+  @include gradient-bg($button-gradient);
+  color: white;
+}
+
+td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+tbody tr {
+  &:hover {
+    background-color: #ffefef;
+  }
+}
+
+.clear-button {
+  @include button-style;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+
+  &:hover {
+    background: linear-gradient(to right, darken($primary-color, 15%), darken($secondary-color, 10%));
+    transform: translateY(-2px);
+    @include shadow(0.4);
+  }
+
+  &:active {
+    background: linear-gradient(to right, darken($primary-color, 20%), darken($secondary-color, 15%));
+  }
+}
+
+h2 a{
+  text-decoration: none;
+  color: #c65e6c;
+}
+
