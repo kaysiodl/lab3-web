@@ -26,6 +26,10 @@ dependencies {
     implementation("jakarta.transaction:jakarta.transaction-api:2.0.1")
     implementation("org.eclipse.persistence:org.eclipse.persistence.jpa:5.0.0-B11")
 
+    implementation("org.hibernate:hibernate-core:5.6.15.Final")
+    implementation("org.hibernate:hibernate-entitymanager:5.6.15.Final")
+    implementation("org.postgresql:postgresql:42.5.4")
+
     implementation("org.slf4j:slf4j-api:2.0.16")
     implementation("ch.qos.logback:logback-classic:1.5.16")
 
