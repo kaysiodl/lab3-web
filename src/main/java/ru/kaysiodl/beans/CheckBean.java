@@ -41,9 +41,9 @@ public class CheckBean implements Serializable {
     }
 
     public boolean checkHit(double x, double y, double r) {
-        return ((x * x + y * y <= (r * r / 4)) && x >= 0 && y <= 0) || // sector
-                (x <= 0 && x >= -r && y <= 0 && y >= -r) || //square
-                ((y <= -x + r) && x >= 0 && y >= 0); //triangle
+        return ((x * x + y * y <= (r * r)) && x >= 0 && y <= 0) || // sector
+                (x >= 0 && x <= r/2 && y <= r && y >= 0) || //square
+                ((y <= x/2 + r/2) && x <= 0 && y >= 0); //triangle
     }
 
 }

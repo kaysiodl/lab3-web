@@ -109,21 +109,21 @@ function drawShapes() {
 function drawArc() {
     ctx.beginPath();
     ctx.moveTo(centerX, centerY);
-    ctx.arc(centerX, centerY, radius / 2, 0, Math.PI / 2);
+    ctx.arc(centerX, centerY, radius, 0, Math.PI / 2);
     ctx.fill();
 }
 
 function drawTriangle() {
     ctx.beginPath();
-    ctx.moveTo(centerX + radius, centerY);
-    ctx.lineTo(centerX, centerY - radius);
+    ctx.moveTo(centerX, centerY - radius/2);
+    ctx.lineTo(centerX - radius, centerY);
     ctx.lineTo(centerX, centerY);
     ctx.fill();
 }
 
 function drawRect() {
     ctx.beginPath();
-    ctx.fillRect(centerX, centerY, -radius, radius);
+    ctx.fillRect(centerX, centerY, radius/2, -radius);
 }
 
 

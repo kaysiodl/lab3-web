@@ -25,7 +25,8 @@
 
             <div id="x-container">
                 <h:outputLabel for="x" value="Введите X:"/>
-                <p:selectOneRadio id="x" value="#{check.x}">
+                <h:inputHidden id="hiddenX" value="#{check.x}"/>
+                <p:selectOneRadio id="x" value="#{check.x}" >
                     <f:selectItem itemLabel="-5" itemValue="-5"/>
                     <f:selectItem itemLabel="-4" itemValue="-4"/>
                     <f:selectItem itemLabel="-3" itemValue="-3"/>
@@ -46,14 +47,20 @@
             </div>
 
             <div id="r-container">
-                <h:inputText id="r" value="#{check.r}" maxlength="7">
-                    <f:validateDoubleRange minimum="-5" maximum="3"></f:validateDoubleRange>
-                </h:inputText>
-                <h:messages for="r"/>
-                <p:slider for="r" minValue="-5" maxValue="3" step="0.25"/>
+                <h:outputText id="output" value="R: #{check.r}"/>
+                <h:inputHidden id="r-input" value="#{check.r}"/>
+                <p:slider for="r-input"
+                          display="output"
+                          minValue="1.0"
+                          maxValue="4.0"
+                          step="0.25"
+                          displayTemplate="Выберите R: {value}"
+                          onSlideEnd="handleR()">
+                    <p:ajax event="slideEnd" process="@this r-input" update="output"/>
+                </p:slider>
             </div>
 
-            <h:commandButton value="Отправить" action="#{check.save()}"
+            <h:commandButton id="submit-button" value="Отправить" action="#{check.save()}"
                              styleClass="submitButton"/>
             <h:commandButton id="navButton" action="toIndex" value="Вернуться на стартовую страницу"/>
 
