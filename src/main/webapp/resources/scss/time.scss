@@ -63,6 +63,17 @@ body {
   justify-content: center;
 }
 
+#header {
+  font-family: monospace;
+  text-align: center;
+  color: $primary-color;
+  font-weight: 500;
+  font-size: 25px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $border-color;
+}
+
 .time-block {
   @include card-style;
   text-align: center;

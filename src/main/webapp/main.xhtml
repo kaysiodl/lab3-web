@@ -13,19 +13,13 @@
 
 <h:body>
     <div class="container">
-        <div id="header">
-            <h2>Матвеева Полина, группа P3215, вариант 27239</h2>
-        </div>
-
         <div id="canvas-container">
             <canvas id="coordinateSystem" width="400px" height="400px"></canvas>
         </div>
 
         <h:form id="pointForm" styleClass="point-form">
-
             <div id="x-container">
                 <h:outputLabel for="x" value="Введите X:"/>
-                <h:inputHidden id="hiddenX" value="#{check.x}"/>
                 <p:selectOneRadio id="x" value="#{check.x}" >
                     <f:selectItem itemLabel="-5" itemValue="-5"/>
                     <f:selectItem itemLabel="-4" itemValue="-4"/>
@@ -36,16 +30,18 @@
                     <f:selectItem itemLabel="1" itemValue="1"/>
                     <f:selectItem itemLabel="2" itemValue="2"/>
                     <f:selectItem itemLabel="3" itemValue="3"/>
+                    <p:ajax update="hidden-x"/>
                 </p:selectOneRadio>
+                <h:inputHidden id="hidden-x" value="#{check.x}"
+                               required="true"
+                               requiredMessage="Выберите значение X"/>
             </div>
-
             <div id="y-container">
                 <h:outputLabel for="y" value="Введите Y:"/>
                 <h:inputText id="y" value="#{check.y}"
                              required="true"
                              requiredMessage="Введите координату Y"/>
             </div>
-
             <div id="r-container">
                 <h:outputText id="output" value="R: #{check.r}"/>
                 <h:inputHidden id="r-input" value="#{check.r}"/>
@@ -59,11 +55,9 @@
                     <p:ajax event="slideEnd" process="@this r-input" update="output"/>
                 </p:slider>
             </div>
-
-            <h:commandButton id="submit-button" value="Отправить" action="#{check.save()}"
-                             styleClass="submitButton"/>
-            <h:commandButton id="navButton" action="toIndex" value="Вернуться на стартовую страницу"/>
-
+            <p:commandButton id="submit-button" value="Отправить" action="#{check.save()}"
+                             styleClass="submit-button" process="@form" ajax="true" update="resultsTable"/>
+            <h:commandButton class="navigation-button" action="toIndex" value="Вернуться на стартовую страницу"/>
             <div class="results">
                 <h3>Результаты попадания</h3>
                 <div class="table">

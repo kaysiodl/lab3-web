@@ -60,17 +60,6 @@ body {
   padding: 30px;
 }
 
-#header {
-  font-family: monospace;
-  text-align: center;
-  color: $primary-color;
-  font-weight: 500;
-  font-size: 25px;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid $border-color;
-}
-
 #coordinateSystem {
   background-color: #fff;
   border-radius: 15px;
@@ -79,7 +68,7 @@ body {
   margin: 70px auto;
 }
 
-#pointForm {
+.point-form {
   @include card-style;
   margin: 20px auto;
   max-width: 600px;
@@ -159,7 +148,7 @@ input[type="text"], select {
   }
 }
 
-.navigationButton {
+.navigation-button {
   @include button-style;
   color: white;
   font-size: 16px;

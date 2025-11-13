@@ -16,14 +16,20 @@ plot.addEventListener('click', (e) => {
     let x = position.x;
     let y = position.y;
 
-    const formX = document.querySelector('[name$=":hiddenX"]');
+    const formX = document.querySelector('[name$=":hidden-x"]');
     const formY = document.getElementById('pointForm:y');
+
+    const xPrev = formX.value;
+    const yPrev = formY.value;
 
     formX.value = x;
     formY.value = y;
     console.log('x: ', formX.value, 'y: ', formY.value);
 
     submit.click();
+
+    formX.value = xPrev;
+    formY.value = yPrev;
 })
 
 function getClientClick(e){
