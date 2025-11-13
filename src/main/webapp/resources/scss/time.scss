@@ -64,9 +64,11 @@ body {
 }
 
 #header {
+  position: relative;
+  display: block;
   font-family: monospace;
   text-align: center;
-  color: $primary-color;
+  color: $border-color;
   font-weight: 500;
   font-size: 25px;
   margin-bottom: 30px;
@@ -177,17 +179,9 @@ body {
 
 .time-block {
   animation: fadeInUp 0.8s ease-out;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  display: block;
+  position: relative;
+  margin-top:  30px;
 }
 
 .time.updating {

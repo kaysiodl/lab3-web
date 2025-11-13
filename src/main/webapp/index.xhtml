@@ -12,7 +12,7 @@
     <div id="header">
         <h2>Матвеева Полина, группа P3215, вариант 27239</h2>
     </div>
-    <div class="block wide time-block">
+    <div class="time-block">
         <div>
             <h1>Текущее время</h1> <h:outputText styleClass="time" id="currentTime" value="#{time.dateTime}"/>
             <p:poll interval="5" listener="#{time.update}" update="currentTime"/>

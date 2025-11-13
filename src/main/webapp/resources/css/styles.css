@@ -22,17 +22,6 @@ body {
   padding: 30px;
 }
 
-#header {
-  font-family: monospace;
-  text-align: center;
-  color: #d48a8a;
-  font-weight: 500;
-  font-size: 25px;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #ffd6d6;
-}
-
 #coordinateSystem {
   background-color: #fff;
   border-radius: 15px;
@@ -41,7 +30,7 @@ body {
   margin: 70px auto;
 }
 
-#pointForm {
+.point-form {
   background: linear-gradient(135deg, #ffefef 0%, #ffecec 100%);
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
@@ -128,7 +117,7 @@ input[type=text]:focus, select:focus {
   accent-color: #f4acb7;
 }
 
-.navigationButton {
+.navigation-button {
   background: linear-gradient(to right, #f4acb7, #ffcad4);
   border: none;
   padding: 12px 25px;
@@ -136,18 +125,18 @@ input[type=text]:focus, select:focus {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.navigationButton:hover {
+.navigation-button:hover {
   background: linear-gradient(to right, #e895a1, #f4acb7);
   transform: translateY(-2px);
 }
-.navigationButton {
+.navigation-button {
   color: white;
   font-size: 16px;
   display: block;
   width: 100%;
   margin-top: 10px;
 }
-.navigationButton:hover {
+.navigation-button:hover {
   box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
 }
 
@@ -274,6 +263,166 @@ tbody tr:hover {
 h2 a {
   text-decoration: none;
   color: #c65e6c;
+}
+
+.table {
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.table thead th {
+  background: linear-gradient(to right, #f4acb7, #ffcad4);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-weight: 600;
+  border: none;
+}
+
+.table tbody td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ffd6d6;
+  color: #4a4a4a;
+}
+
+.table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(244, 172, 183, 0.1);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+#x-container .ui-selectoneradio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#x-container .ui-radiobutton {
+  margin-right: 8px;
+}
+
+#x-container .ui-radiobutton .ui-radiobutton-box {
+  border: 2px solid #ffd6d6;
+  background: white;
+  width: 20px;
+  height: 20px;
+}
+
+#x-container .ui-radiobutton .ui-radiobutton-box.ui-state-focus {
+  border-color: #f4acb7;
+  box-shadow: 0 0 5px rgba(255, 182, 193, 0.2);
+}
+
+#x-container .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+  border-color: #d48a8a;
+  background: #d48a8a;
+}
+
+#x-container .ui-radiobutton .ui-radiobutton-icon {
+  background: none;
+  color: white;
+  font-size: 14px;
+}
+
+#x-container label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  color: #4a4a4a;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+#y-container input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ffd6d6;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+#y-container input:focus {
+  outline: none;
+  border-color: #f4acb7;
+  box-shadow: 0 0 5px rgba(255, 182, 193, 0.2);
+}
+
+#r-container {
+  margin-bottom: 25px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  border: 2px solid #ffd6d6;
+}
+
+#r-container .ui-slider {
+  background: #f0f0f0;
+  border: 1px solid #ffd6d6;
+  border-radius: 10px;
+  height: 8px;
+  margin: 15px 0;
+}
+
+#r-container .ui-slider .ui-slider-range {
+  background: linear-gradient(to right, #f4acb7, #ffcad4);
+  border-radius: 10px;
+}
+
+#r-container .ui-slider .ui-slider-handle {
+  background: white;
+  border: 2px solid #d48a8a;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: -7px;
+  transition: all 0.3s ease;
+}
+
+#r-container .ui-slider .ui-slider-handle:hover {
+  border-color: #f4acb7;
+  transform: scale(1.2);
+}
+
+#r-container .ui-slider .ui-slider-handle:focus {
+  outline: none;
+  border-color: #f4acb7;
+  box-shadow: 0 0 8px rgba(255, 182, 193, 0.2);
+}
+
+#r-container #output {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #d48a8a;
+  margin-bottom: 10px;
+}
+
+.ui-message-error,
+.ui-messages-error {
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

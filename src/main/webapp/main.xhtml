@@ -19,7 +19,8 @@
 
         <h:form id="pointForm" styleClass="point-form">
             <div id="x-container">
-                <h:outputLabel for="x" value="Введите X:"/>
+                <h:outputLabel for="x" value="Введите X:"
+                               style="color:#d48a8a; font-weight: 600"/>
                 <p:selectOneRadio id="x" value="#{check.x}" >
                     <f:selectItem itemLabel="-5" itemValue="-5"/>
                     <f:selectItem itemLabel="-4" itemValue="-4"/>
@@ -43,7 +44,8 @@
                              requiredMessage="Введите координату Y"/>
             </div>
             <div id="r-container">
-                <h:outputText id="output" value="R: #{check.r}"/>
+                <h:outputText id="output" value="Выберите R: #{check.r}"
+                              style="color:#d48a8a; font-weight: 600"/>
                 <h:inputHidden id="r-input" value="#{check.r}"/>
                 <p:slider for="r-input"
                           display="output"
