@@ -121,33 +121,6 @@ input[type="text"], select {
   margin-bottom: 40px;
 }
 
-[type="checkbox"] {
-  border-color: $primary-color;
-  font-size: 30px;
-  accent-color: #f4acb7;
-  width: 20px;
-  height: 20px;
-  margin: 10px;
-  cursor: pointer;
-
-  &:checked {
-    background-color: $secondary-color;
-    border-color: $primary-color;
-
-    &::after {
-      color: white;
-      position: absolute;
-      font-size: 14px;
-      font-weight: bold;
-    }
-  }
-
-  &:hover {
-    color: $primary-color;
-    accent-color: $secondary-color;
-  }
-}
-
 .navigation-button {
   @include button-style;
   color: white;
@@ -166,30 +139,8 @@ input[type="text"], select {
   text-align:  center;
 }
 
-.back-button {
+.submit-button {
   @include button-style;
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-
-  &:hover {
-    background: linear-gradient(to right, #e895a1, #f4acb7);
-    transform: translateY(-2px);
-    @include shadow(0.4);
-    text-decoration: none;
-    color: white;
-  }
-
-  &::before {
-    content: "←";
-    font-weight: bold;
-  }
 }
 
 .results {

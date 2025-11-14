@@ -17,7 +17,7 @@
             <canvas id="coordinateSystem" width="400px" height="400px"></canvas>
         </div>
 
-        <h:form id="pointForm" styleClass="point-form">
+        <h:form id="point-form" styleClass="point-form">
             <div id="x-container">
                 <h:outputLabel for="x" value="Введите X:"
                                style="color:#d48a8a; font-weight: 600"/>
@@ -36,17 +36,21 @@
                 <h:inputHidden id="hidden-x" value="#{check.x}"
                                required="true"
                                requiredMessage="Выберите значение X"/>
+                <p:message for="hidden-x" />
             </div>
             <div id="y-container">
                 <h:outputLabel for="y" value="Введите Y:"/>
                 <h:inputText id="y" value="#{check.y}"
                              required="true"
                              requiredMessage="Введите координату Y"/>
+                <p:message for="y" />
             </div>
             <div id="r-container">
                 <h:outputText id="output" value="Выберите R: #{check.r}"
                               style="color:#d48a8a; font-weight: 600"/>
-                <h:inputHidden id="r-input" value="#{check.r}"/>
+                <h:inputHidden id="r-input" value="#{check.r}"
+                               required="true"
+                               requiredMessage="Выберите R"/>
                 <p:slider for="r-input"
                           display="output"
                           minValue="1.0"
@@ -56,9 +60,10 @@
                           onSlideEnd="handleR()">
                     <p:ajax event="slideEnd" process="@this r-input" update="output"/>
                 </p:slider>
+                <p:message for="r-input" />
             </div>
             <p:commandButton id="submit-button" value="Отправить" action="#{check.save()}"
-                             styleClass="submit-button" process="@form" ajax="true" update="table-form"/>
+                             styleClass="submit-button" process="@form" ajax="true" update="table-form point-form"/>
             <h:commandButton class="navigation-button" action="toIndex" value="Вернуться на стартовую страницу"/>
         </h:form>
 

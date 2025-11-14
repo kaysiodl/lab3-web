@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -93,30 +92,6 @@ input[type=text]:focus, select:focus {
   margin-bottom: 40px;
 }
 
-[type=checkbox] {
-  border-color: #d48a8a;
-  font-size: 30px;
-  accent-color: #f4acb7;
-  width: 20px;
-  height: 20px;
-  margin: 10px;
-  cursor: pointer;
-}
-[type=checkbox]:checked {
-  background-color: #f4acb7;
-  border-color: #d48a8a;
-}
-[type=checkbox]:checked::after {
-  color: white;
-  position: absolute;
-  font-size: 14px;
-  font-weight: bold;
-}
-[type=checkbox]:hover {
-  color: #d48a8a;
-  accent-color: #f4acb7;
-}
-
 .navigation-button {
   background: linear-gradient(to right, #f4acb7, #ffcad4);
   border: none;
@@ -145,7 +120,7 @@ input[type=text]:focus, select:focus {
   text-align: center;
 }
 
-.back-button {
+.ui-button {
   background: linear-gradient(to right, #f4acb7, #ffcad4);
   border: none;
   padding: 12px 25px;
@@ -153,31 +128,9 @@ input[type=text]:focus, select:focus {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.back-button:hover {
+.ui-button:hover {
   background: linear-gradient(to right, #e895a1, #f4acb7);
   transform: translateY(-2px);
-}
-.back-button {
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-}
-.back-button:hover {
-  background: linear-gradient(to right, #e895a1, #f4acb7);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
-  text-decoration: none;
-  color: white;
-}
-.back-button::before {
-  content: "←";
-  font-weight: bold;
 }
 
 .results {

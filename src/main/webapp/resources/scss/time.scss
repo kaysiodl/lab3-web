@@ -63,6 +63,11 @@ body {
   justify-content: center;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
 #header {
   position: relative;
   display: block;

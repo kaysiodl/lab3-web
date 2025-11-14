@@ -9,19 +9,23 @@
     <link rel="stylesheet" href="./resources/css/time.css"/>
 </h:head>
 <h:body>
-    <div id="header">
-        <h2>Матвеева Полина, группа P3215, вариант 27239</h2>
-    </div>
-    <div class="time-block">
-        <div>
-            <h1>Текущее время</h1> <h:outputText styleClass="time" id="currentTime" value="#{time.dateTime}"/>
-            <p:poll interval="5" listener="#{time.update}" update="currentTime"/>
+    <div class="container">
+        <div id="header">
+            <h2>Матвеева Полина</h2>
+            <h2>группа P3215</h2>
+            <h2>вариант 27239</h2>
         </div>
-        <h:form>
-            <div class="button-container">
-                <h:commandButton styleClass="navigation-button" action="toMain" value="Главная страница"/>
+        <div class="time-block">
+            <div>
+                <h1>Текущее время</h1> <h:outputText styleClass="time" id="currentTime" value="#{time.dateTime}"/>
+                <p:poll interval="5" listener="#{time.update}" update="currentTime"/>
             </div>
-        </h:form>
+            <h:form>
+                <div class="button-container">
+                    <h:commandButton styleClass="navigation-button" action="toMain" value="Главная страница"/>
+                </div>
+            </h:form>
+        </div>
     </div>
 </h:body>
 </html>
