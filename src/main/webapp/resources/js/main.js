@@ -25,7 +25,9 @@ plot.addEventListener('click', (e) => {
     console.log('x: ', formX.value, 'y: ', formY.value);
 
     document.getElementById('point-form:submit-button').click();
-    drawResultsFromTable();
+    setTimeout(drawResultsFromTable, 300);
+
+    formY.value = '';
 })
 
 function getClientClick(e) {
@@ -47,7 +49,7 @@ function drawResultsFromTable() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     draw();
     drawLabels();
-
+    handleR();
     const table = document.getElementById('table-form:resultsTable');
     if (!table) {
         console.log('Таблица не найдена');
