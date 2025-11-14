@@ -80,14 +80,14 @@
                         <h:outputText value="#{result.hit}"/>
                     </p:column>
                     <p:column headerText="Время выполнения">
-                        <h:outputText value="#{result.time}"/>
+                        <h:outputText value="#{result.executionTime}"/>
                     </p:column>
                     <p:column headerText="Время">
                         <h:outputText value="#{result.currentTime}"/>
                     </p:column>
                 </p:dataTable>
                 <h:commandButton value="Очистить" action="#{results.clear()}"
-                                 styleClass="clear-button" update="table-form"/>
+                                 styleClass="clear-button" process="@form" ajax="true" update="table-form"/>
             </h:form>
         </div>
     </div>

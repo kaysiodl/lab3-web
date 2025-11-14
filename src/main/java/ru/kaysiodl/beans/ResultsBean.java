@@ -1,28 +1,33 @@
 package ru.kaysiodl.beans;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
-import ru.kaysiodl.services.response.Result;
+import ru.kaysiodl.database.ResultsRepository;
+import ru.kaysiodl.database.Result;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
 @Setter
 @Getter
 @Named("results")
 @SessionScoped
 public class ResultsBean implements Serializable {
-    ArrayList<Result> results = new ArrayList<>();
-
-    public void clear() {
-        this.results.clear();
-    }
+    @Inject
+    private ResultsRepository repository;
 
     public void add(Result result) {
-        this.results.add(result);
+        repository.add(result);
+    }
+
+    public void clear() {
+        repository.clear();
+    }
+
+    public List<Result> getResults() {
+        return repository.getAll();
     }
 }

@@ -1,14 +1,15 @@
 package ru.kaysiodl.beans;
 
+import ru.kaysiodl.database.Result;
+
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import lombok.Data;
-import ru.kaysiodl.services.response.Result;
-
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 @Named("check")
 @SessionScoped
@@ -36,8 +37,7 @@ public class CheckBean implements Serializable {
                 .hit(hit)
                 .currentTime(String.valueOf(LocalTime.now(ZoneId.of("Europe/Moscow"))
                         .withNano(0)))
-                .time(String.format("%.3f ms", (endTime - startTime) / 1_000_000.0)).build());
-
+                .executionTime(String.format("%.3f ms", (endTime - startTime) / 1_000_000.0)).build());
     }
 
     public boolean checkHit(double x, double y, double r) {

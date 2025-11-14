@@ -21,7 +21,8 @@ body {
   display: block;
   font-family: monospace;
   text-align: center;
-  color: #d48a8a;
+  width: 100%;
+  color: #ffd6d6;
   font-weight: 500;
   font-size: 25px;
   margin-bottom: 30px;
@@ -36,6 +37,7 @@ body {
   padding: 25px;
   text-align: center;
   max-width: 700px;
+  width: 100%;
   margin: 0 auto;
   border: 2px solid #ffd6d6;
 }
