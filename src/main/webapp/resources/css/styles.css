@@ -115,12 +115,7 @@ input[type=text]:focus, select:focus {
   box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
 }
 
-#resultsButton {
-  text-decoration: none;
-  text-align: center;
-}
-
-.ui-button {
+.submit-button, .clear-button {
   background: linear-gradient(to right, #f4acb7, #ffcad4);
   border: none;
   padding: 12px 25px;
@@ -128,9 +123,14 @@ input[type=text]:focus, select:focus {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.ui-button:hover {
+.submit-button:hover, .clear-button:hover {
   background: linear-gradient(to right, #e895a1, #f4acb7);
   transform: translateY(-2px);
+}
+.submit-button, .clear-button {
+  background: #b8b6b6;
+  display: block;
+  margin: 0 auto;
 }
 
 .results {

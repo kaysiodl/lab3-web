@@ -8,7 +8,6 @@
 <h:head>
     <title>Lab3 Web JSF</title>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="./resources/css/styles.css"/>
 </h:head>
 
 <h:body>
@@ -62,8 +61,14 @@
                 </p:slider>
                 <p:message for="r-input" />
             </div>
-            <p:commandButton id="submit-button" value="Отправить" action="#{check.save()}"
-                             styleClass="submit-button" process="@form" ajax="true" update="table-form point-form"/>
+            <p:commandButton id="submit-button"
+                             value="Отправить"
+                             action="#{check.save()}"
+                             styleClass="submit-button"
+                             process="@form"
+                             ajax="true"
+                             update="table-form point-form"
+                             style="background: #BCB8B8FF; display: block; margin: 0 auto "/>
             <h:commandButton class="navigation-button" action="toIndex" value="Вернуться на стартовую страницу"/>
         </h:form>
 
@@ -91,8 +96,12 @@
                         <h:outputText value="#{result.currentTime}"/>
                     </p:column>
                 </p:dataTable>
-                <h:commandButton value="Очистить" action="#{results.clear()}"
-                                 styleClass="clear-button" process="@form" ajax="true" update="table-form"/>
+                <p:commandButton value="Очистить" action="#{results.clear()}"
+                                 styleClass="clear-button"
+                                 style="background: #bcb8b8"
+                                 process="@form"
+                                 ajax="true"
+                                 update="table-form"/>
             </h:form>
         </div>
     </div>
@@ -101,5 +110,6 @@
     <h:outputScript library="primefaces" name="jquery/jquery.js"/>
     <h:outputScript name="coordinateSystem.js" library="js"/>
     <h:outputScript name="main.js" library="js"/>
+    <h:outputStylesheet name="css/styles.css"/>
 </h:body>
 </html>

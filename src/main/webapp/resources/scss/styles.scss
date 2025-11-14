@@ -134,13 +134,11 @@ input[type="text"], select {
   }
 }
 
-#resultsButton{
-  text-decoration: none;
-  text-align:  center;
-}
-
-.submit-button {
+.submit-button, .clear-button{
   @include button-style;
+  background: #b8b6b6;
+  display: block;
+  margin: 0 auto;
 }
 
 .results {
