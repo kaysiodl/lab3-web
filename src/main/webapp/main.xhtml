@@ -86,11 +86,10 @@
                         <h:outputText value="#{result.currentTime}"/>
                     </p:column>
                 </p:dataTable>
+                <h:commandButton value="Очистить" action="#{results.clear()}"
+                                 styleClass="clear-button" update="table-form"/>
             </h:form>
         </div>
-
-        <h:commandButton value="Очистить" action="#{results.clear()}"
-                         styleClass="clear-button" update="table"/>
     </div>
 
 
