@@ -84,14 +84,4 @@ function clearErrors() {
     document.querySelectorAll('.error-text').forEach(element => element.remove());
 }
 
-async function clearSession() {
-    try {
-        await fetch('/lab2/clear', {
-            method: 'POST'
-        });
-        console.log('Сессия очищена');
-    } catch (error) {
-        console.error('Ошибка очистки сессии:', error);
-    }
-}
 
