@@ -1,5 +1,5 @@
 const plot = document.getElementById('coordinateSystem');
-const submit = document.getElementById('pointForm:submit-button');
+const submit = document.getElementById('point-form:submit-button');
 
 document.addEventListener('DOMContentLoaded', function () {
     draw();
@@ -18,9 +18,8 @@ plot.addEventListener('click', (e) => {
     let y = position.y;
     drawPoint(x * 20 * 8 / position.r, -y * 20 * 8 / position.r, 'black');
 
-
     const formX = document.querySelector('[name$=":hidden-x"]');
-    const formY = document.getElementById('pointForm:y');
+    const formY = document.querySelector('[name$=":y"]');
 
     const xPrev = formX.value;
     const yPrev = formY.value;
@@ -48,18 +47,5 @@ function round(number, precision) {
     return Math.round(number * coefficient) / coefficient;
 }
 
-function printError(element, message) {
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'error-text';
-    errorDiv.textContent = message;
-    errorDiv.style.color = 'red';
-    errorDiv.style.fontStyle = '14px';
-    errorDiv.style.textAlign = 'center';
-    element.parentNode.insertBefore(errorDiv, element.nextSibling);
-}
-
-function clearErrors() {
-    document.querySelectorAll('.error-text').forEach(element => element.remove());
-}
 
 
