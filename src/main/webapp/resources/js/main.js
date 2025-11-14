@@ -66,7 +66,7 @@ function drawResultsFromTable() {
     const currentR = parseFloat(document.querySelector('[id$=":r-input"]').value);
 
     if (isNaN(currentR)) {
-        console.log('R не выбран');
+        console.log('радиус не выбран');
         return;
     }
 
