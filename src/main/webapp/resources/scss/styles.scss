@@ -60,7 +60,7 @@ body {
   padding: 30px;
 }
 
-#coordinateSystem {
+#coordinate-system {
   background-color: #fff;
   border-radius: 15px;
   @include shadow(0.3);
@@ -374,7 +374,6 @@ h2 a{
 .ui-messages-error {
   color: #e74c3c;
   background: rgba(231, 76, 60, 0.1);
-  border: 1px solid rgba(231, 76, 60, 0.3);
   padding: 10px;
   border-radius: 5px;
   margin: 5px 0;

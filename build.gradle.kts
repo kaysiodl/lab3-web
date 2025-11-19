@@ -19,6 +19,7 @@ dependencies {
     compileOnly("jakarta.servlet:jakarta.servlet-api:6.1.0")
     implementation("jakarta.faces:jakarta.faces-api:4.1.2")
     implementation("jakarta.inject:jakarta.inject-api:2.0.1")
+    implementation("jakarta.validation:jakarta.validation-api:3.0.2")
     implementation("jakarta.enterprise:jakarta.enterprise.cdi-api:5.0.0-M1")
     implementation("org.primefaces:primefaces:15.0.9:jakarta")
 
@@ -38,6 +39,8 @@ dependencies {
 
     compileOnly ("org.projectlombok:lombok:1.18.20")
     annotationProcessor ("org.projectlombok:lombok:1.18.20")
+
+    implementation("com.google.code.gson:gson:2.13.2")
 }
 
 tasks.war {
