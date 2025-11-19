@@ -34,7 +34,7 @@ plot.addEventListener('click', (e) => {
 function drawResults() {
     const results = JSON.parse(document.querySelector('[name$=":hidden-results"]').value);
     console.log('results: ', results);
-    results.forEach(point => {drawPoint(point.x * 20 * 8 / r, -point.y * 20 * 8 / r, point.hit ? 'green' : 'red')});
+    results.forEach(point => {drawPoint(point.x * 20 * 8 / point.r, -point.y * 20 * 8 / point.r, point.hit ? 'green' : 'red')});
 }
 
 function getClientClick(e) {

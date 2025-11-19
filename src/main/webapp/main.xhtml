@@ -14,7 +14,7 @@
     <div class="container">
         <h:form>
             <div class="button-container">
-                <h:commandButton class="navigation-button" action="to-index" value="Вернуться на стартовую страницу"/>
+                <h:commandButton class="navigation-button" styleClass="nav-button" action="to-index" value="Вернуться на стартовую страницу"/>
             </div>
         </h:form>
 
@@ -69,11 +69,12 @@
             <p:commandButton id="submit-button"
                              style="background: #BCB8B8FF; display: block; margin: 0 auto "
                              value="Отправить"
-                             action="#{form.save()}"
                              styleClass="submit-button"
                              process="@form"
                              ajax="true"
                              update="table-form point-form"
+                             actionListener="#{form.save()}"
+                             oncomplete="drawResults()"
             />
         </h:form>
 
@@ -82,10 +83,11 @@
             <h:inputHidden id="hidden-y" value="#{canvas.y}"/>
             <h:inputHidden id="hidden-r" value="#{canvas.r}"/>
             <p:commandButton id="hidden-submit"
-                             action="#{canvas.save()}"
                              process="@form"
                              ajax="true"
                              update="table-form"
+                             actionListener="#{canvas.save()}"
+                             oncomplete="drawResults()"
             />
         </h:form>
 
@@ -116,8 +118,7 @@
                 </p:dataTable>
                 <p:commandButton value="Очистить" action="#{results.clear()}"
                                  styleClass="clear-button"
-                                 style="background: #bcb8b8"
-                                 process="@form"
+                                 process="@this results-table"
                                  ajax="true"
                                  update="table-form"/>
             </h:form>
