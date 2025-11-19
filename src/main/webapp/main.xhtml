@@ -14,7 +14,8 @@
     <div class="container">
         <h:form>
             <div class="button-container">
-                <h:commandButton class="navigation-button" styleClass="nav-button" action="to-index" value="Вернуться на стартовую страницу"/>
+                <h:commandButton class="navigation-button" styleClass="nav-button" action="to-index"
+                                 value="Вернуться на стартовую страницу"/>
             </div>
         </h:form>
 
@@ -116,11 +117,12 @@
                         <h:outputText value="#{result.currentTime}"/>
                     </p:column>
                 </p:dataTable>
-                <p:commandButton value="Очистить" action="#{results.clear()}"
+                <p:commandButton value="Очистить" actionListener="#{results.clear()}"
                                  styleClass="clear-button"
                                  process="@this results-table"
                                  ajax="true"
-                                 update="table-form"/>
+                                 update="table-form"
+                                 oncomplete="start()"/>
             </h:form>
         </div>
     </div>

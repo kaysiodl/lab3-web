@@ -2,11 +2,15 @@ const plot = document.getElementById('coordinate-system');
 let r = parseFloat(document.querySelector('[name$=":r-input"]').value);
 
 document.addEventListener('DOMContentLoaded', function () {
+    start();
+});
+
+function start(){
     draw();
     drawLabels();
     handleR();
-    drawResultsFromTable();
-});
+    drawResults();
+}
 
 function handleR() {
     let radius = parseFloat(document.querySelector('[name$=":r-input"]').value);
