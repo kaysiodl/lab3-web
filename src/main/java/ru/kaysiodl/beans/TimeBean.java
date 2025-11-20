@@ -20,5 +20,4 @@ public class TimeBean implements Serializable {
     public void update() {
         currentTime = LocalDateTime.now();
     }
-
 }

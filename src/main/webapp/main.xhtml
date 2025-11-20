@@ -12,15 +12,24 @@
 
 <h:body>
     <div class="container">
+        <h:form>
+            <div class="button-container">
+                <h:commandButton class="navigation-button" styleClass="nav-button" action="to-index"
+                                 value="Вернуться на стартовую страницу"/>
+            </div>
+        </h:form>
+
         <div id="canvas-container">
-            <canvas id="coordinateSystem" width="400px" height="400px"></canvas>
+            <canvas id="coordinate-system" width="400px" height="400px"/>
         </div>
 
         <h:form id="point-form" styleClass="point-form">
             <div id="x-container">
                 <h:outputLabel for="x" value="Введите X:"
                                style="color:#d48a8a; font-weight: 600"/>
-                <p:selectOneRadio id="x" value="#{check.x}">
+                <p:selectOneRadio id="x" value="#{form.x}" required="true"
+                                  requiredMessage="Выберите значение X">
+                    <f:converter converterId="jakarta.faces.Integer"/>
                     <f:selectItem itemLabel="-5" itemValue="-5"/>
                     <f:selectItem itemLabel="-4" itemValue="-4"/>
                     <f:selectItem itemLabel="-3" itemValue="-3"/>
@@ -30,24 +39,26 @@
                     <f:selectItem itemLabel="1" itemValue="1"/>
                     <f:selectItem itemLabel="2" itemValue="2"/>
                     <f:selectItem itemLabel="3" itemValue="3"/>
-                    <p:ajax update="hidden-x"/>
+                    <p:ajax event="change" process="@this" update="submit-button x-message"/>
                 </p:selectOneRadio>
-                <h:inputHidden id="hidden-x" value="#{check.x}"
-                               required="true"
-                               requiredMessage="Выберите значение X"/>
-                <p:message for="hidden-x" />
+                <p:message id="x-message" for="x"/>
             </div>
             <div id="y-container">
                 <h:outputLabel for="y" value="Введите Y:"/>
-                <h:inputText id="y" value="#{check.y}"
-                             required="true"
-                             requiredMessage="Введите координату Y"/>
-                <p:message for="y" />
+                <p:inputText id="y" name="y" maxlength="8" required="true"
+                             value="#{form.y}"
+                             onkeypress="return /^-?(?!.*-)[0-9]*\.?[0-9]*$/.test(event.target.value + event.key)"
+                             placeholder="Введите значение -3 &lt; y &lt; 5">
+                    <f:convertNumber minFractionDigits="1" maxFractionDigits="4" locale="US"/>
+                    <f:validateDoubleRange minimum="-3" maximum="5"/>
+                    <p:ajax event="change" process="@this" update="submit-button y-message"/>
+                </p:inputText>
+                <p:message id="y-message" for="y"/>
             </div>
             <div id="r-container">
-                <h:outputText id="output" value="Выберите R: #{check.r}"
+                <h:outputText id="output" value="Выберите R: #{form.r}"
                               style="color:#d48a8a; font-weight: 600"/>
-                <h:inputHidden id="r-input" value="#{check.r}"
+                <h:inputHidden id="r-input" value="#{form.r}"
                                required="true"
                                requiredMessage="Выберите R"/>
                 <p:slider for="r-input"
@@ -57,26 +68,42 @@
                           step="0.25"
                           displayTemplate="Выберите R: {value}"
                           onSlideEnd="handleR()">
-                    <p:ajax event="slideEnd" process="@this r-input" update="output"/>
+                    <p:ajax event="slideEnd" process="@this r-input" update="output submit-button r-message"/>
                 </p:slider>
-                <p:message for="r-input" />
+                <p:message id="r-message" for="r-input"/>
             </div>
             <p:commandButton id="submit-button"
+                             style="background: #BCB8B8FF; display: block; margin: 0 auto "
                              value="Отправить"
-                             action="#{check.save()}"
                              styleClass="submit-button"
                              process="@form"
                              ajax="true"
-                             update="table-form point-form"
-                             style="background: #BCB8B8FF; display: block; margin: 0 auto "/>
-            <h:commandButton class="navigation-button" action="toIndex" value="Вернуться на стартовую страницу"/>
+                             update="table-form x-message y-message r-message submit-button"
+                             disabled="#{empty form.x or empty form.y or empty form.r or not empty facesContext.messageList}"
+                             actionListener="#{form.save()}"
+                             oncomplete="drawResults()"
+            />
+        </h:form>
+
+        <h:form id="hidden-form" style="display: none">
+            <h:inputHidden id="hidden-x" value="#{canvas.x}"/>
+            <h:inputHidden id="hidden-y" value="#{canvas.y}"/>
+            <h:inputHidden id="hidden-r" value="#{canvas.r}"/>
+            <p:commandButton id="hidden-submit"
+                             process="@form"
+                             ajax="true"
+                             update="table-form"
+                             actionListener="#{canvas.save()}"
+                             oncomplete="drawResults()"
+            />
         </h:form>
 
         <div class="results">
             <h3>Результаты попадания</h3>
             <h:form id="table-form">
+                <h:inputHidden id="hidden-results" value="#{results.jsonResults}"/>
                 <p:dataTable value="#{results.results}" var="result"
-                             rendered="#{not empty results.results}" id="resultsTable">
+                             rendered="#{not empty results.results}" id="results-table" styleClass="table">
                     <p:column headerText="X">
                         <h:outputText value="#{result.x}"/>
                     </p:column>
@@ -96,12 +123,12 @@
                         <h:outputText value="#{result.currentTime}"/>
                     </p:column>
                 </p:dataTable>
-                <p:commandButton value="Очистить" action="#{results.clear()}"
+                <p:commandButton value="Очистить" actionListener="#{results.clear()}"
                                  styleClass="clear-button"
-                                 style="background: #bcb8b8"
-                                 process="@form"
+                                 process="@this results-table"
                                  ajax="true"
-                                 update="table-form"/>
+                                 update="table-form"
+                                 oncomplete="start()"/>
             </h:form>
         </div>
     </div>

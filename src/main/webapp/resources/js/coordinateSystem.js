@@ -1,4 +1,4 @@
-const canvas = document.getElementById('coordinateSystem');
+const canvas = document.getElementById('coordinate-system');
 const ctx = canvas.getContext('2d');
 
 const width = canvas.width;
@@ -115,7 +115,7 @@ function drawArc() {
 
 function drawTriangle() {
     ctx.beginPath();
-    ctx.moveTo(centerX, centerY - radius/2);
+    ctx.moveTo(centerX, centerY - radius / 2);
     ctx.lineTo(centerX - radius, centerY);
     ctx.lineTo(centerX, centerY);
     ctx.fill();
@@ -123,7 +123,7 @@ function drawTriangle() {
 
 function drawRect() {
     ctx.beginPath();
-    ctx.fillRect(centerX, centerY, radius/2, -radius);
+    ctx.fillRect(centerX, centerY, radius / 2, -radius);
 }
 
 
@@ -136,7 +136,7 @@ function drawPoint(x, y, color) {
     ctx.fillStyle = 'black';
 }
 
-function updateLabels(inputR){
+function updateLabels(inputR) {
     ctx.clearRect(centerX - radius - 30, centerY - radius - 30,
         2 * radius + 60, 2 * radius + 60);
 
@@ -152,4 +152,5 @@ function computeRadius(formula, inputR) {
     let newFormula = formula.replace('R', inputR);
     return eval(newFormula);
 }
+
 

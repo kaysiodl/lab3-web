@@ -6,7 +6,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
+  background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%) !important;
   min-height: 100vh;
   padding: 20px;
   color: #4a4a4a;
@@ -21,7 +21,7 @@ body {
   padding: 30px;
 }
 
-#coordinateSystem {
+#coordinate-system {
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
@@ -30,7 +30,7 @@ body {
 }
 
 .point-form {
-  background: linear-gradient(135deg, #ffefef 0%, #ffecec 100%);
+  background: linear-gradient(135deg, #ffefef 0%, #ffecec 100%) !important;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
   padding: 25px;
@@ -40,9 +40,9 @@ body {
 
 .x-button {
   margin-bottom: 25px;
-  background: linear-gradient(to right, #f4acb7, #ffcad4);
-  border: none;
-  padding: 12px 25px;
+  background: linear-gradient(to right, #f4acb7, #ffcad4) !important;
+  border: none !important;
+  padding: 12px 25px !important;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -64,6 +64,20 @@ body {
   background: #c65e6c;
   color: white;
   border-color: #c65e6c;
+}
+
+.nav-button {
+  margin-bottom: 25px !important;
+  background: linear-gradient(to right, #f4acb7, #ffcad4) !important;
+  border: none !important;
+  padding: 12px 25px !important;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.nav-button:hover {
+  background: linear-gradient(to right, #e895a1, #f4acb7);
+  transform: translateY(-2px);
 }
 
 label {
@@ -93,9 +107,9 @@ input[type=text]:focus, select:focus {
 }
 
 .navigation-button {
-  background: linear-gradient(to right, #f4acb7, #ffcad4);
-  border: none;
-  padding: 12px 25px;
+  background: linear-gradient(to right, #f4acb7, #ffcad4) !important;
+  border: none !important;
+  padding: 12px 25px !important;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -116,9 +130,9 @@ input[type=text]:focus, select:focus {
 }
 
 .submit-button, .clear-button {
-  background: linear-gradient(to right, #f4acb7, #ffcad4);
-  border: none;
-  padding: 12px 25px;
+  background: linear-gradient(to right, #f4acb7, #ffcad4) !important;
+  border: none !important;
+  padding: 12px 25px !important;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -135,7 +149,7 @@ input[type=text]:focus, select:focus {
 
 .results {
   margin-top: 30px;
-  background: linear-gradient(135deg, #ffefef 0%, #ffecec 100%);
+  background: linear-gradient(135deg, #ffefef 0%, #ffecec 100%) !important;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
   padding: 25px;
@@ -171,7 +185,6 @@ table {
 }
 
 thead {
-  background: linear-gradient(to right, #f4acb7, #ffcad4);
   color: white;
 }
 
@@ -185,9 +198,9 @@ tbody tr:hover {
 }
 
 .clear-button {
-  background: linear-gradient(to right, #f4acb7, #ffcad4);
-  border: none;
-  padding: 12px 25px;
+  background: linear-gradient(to right, #f4acb7, #ffcad4) !important;
+  border: none !important;
+  padding: 12px 25px !important;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -232,7 +245,6 @@ h2 a {
 }
 
 .table thead th {
-  background: linear-gradient(to right, #f4acb7, #ffcad4);
   color: white;
   padding: 15px;
   text-align: center;
@@ -334,7 +346,7 @@ h2 a {
 }
 
 #r-container .ui-slider .ui-slider-range {
-  background: linear-gradient(to right, #f4acb7, #ffcad4);
+  background: linear-gradient(to right, #f4acb7, #ffcad4) !important;
   border-radius: 10px;
 }
 
@@ -368,11 +380,18 @@ h2 a {
   margin-bottom: 10px;
 }
 
+.table {
+  overflow-y: auto;
+  height: 600px;
+}
+.table .ui-datatable-tablewrapper {
+  overflow: visible !important;
+}
+
 .ui-message-error,
 .ui-messages-error {
   color: #e74c3c;
   background: rgba(231, 76, 60, 0.1);
-  border: 1px solid rgba(231, 76, 60, 0.3);
   padding: 10px;
   border-radius: 5px;
   margin: 5px 0;
