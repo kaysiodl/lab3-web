@@ -13,8 +13,6 @@ import lombok.Data;
 import ru.kaysiodl.services.ResultsService;
 
 import java.io.Serializable;
-import java.time.LocalTime;
-import java.time.ZoneId;
 
 @Named("form")
 @SessionScoped

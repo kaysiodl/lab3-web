@@ -29,7 +29,7 @@
                                style="color:#d48a8a; font-weight: 600"/>
                 <p:selectOneRadio id="x" value="#{form.x}" required="true"
                                   requiredMessage="Выберите значение X">
-                    <f:converter converterId="jakarta.faces.Double"/>
+                    <f:converter converterId="jakarta.faces.Integer"/>
                     <f:selectItem itemLabel="-5" itemValue="-5"/>
                     <f:selectItem itemLabel="-4" itemValue="-4"/>
                     <f:selectItem itemLabel="-3" itemValue="-3"/>
@@ -45,7 +45,10 @@
             </div>
             <div id="y-container">
                 <h:outputLabel for="y" value="Введите Y:"/>
-                <p:inputText id="y" name="y" maxlength="8" required="true" value="#{form.y}">
+                <p:inputText id="y" name="y" maxlength="8" required="true"
+                             value="#{form.y}"
+                             onkeypress="return /^-?(?!.*-)[0-9]*\.?[0-9]*$/.test(event.target.value + event.key)"
+                             placeholder="Введите значение -3 &lt; y &lt; 5">
                     <f:convertNumber minFractionDigits="1" maxFractionDigits="4" locale="US"/>
                     <f:validateDoubleRange minimum="-3" maximum="5"/>
                     <p:ajax event="change" process="@this" update="submit-button y-message"/>
@@ -76,7 +79,7 @@
                              process="@form"
                              ajax="true"
                              update="table-form x-message y-message r-message submit-button"
-                             disabled="#{empty form.x or empty form.y or empty form.r}"
+                             disabled="#{empty form.x or empty form.y or empty form.r or not empty facesContext.messageList}"
                              actionListener="#{form.save()}"
                              oncomplete="drawResults()"
             />
