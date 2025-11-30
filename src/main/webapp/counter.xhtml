@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:text="https://kaysiodl.ru/components">
+
+<h:head>
+    <title>Text counter</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="./resources/css/variant.css"/>
+</h:head>
+<h:body>
+    <div class="container">
+        <text:counter id="test_0" show="all" excludeSpaces="true">
+            обычный текст
+            без всего
+        </text:counter>
+
+        <text:counter id="test_1" show="all" excludeSpaces="true">
+            <span>
+                Это пример текста для подсчета.
+                В нём несколько строк.
+                И разные слова!
+            </span>
+        </text:counter>
+
+        <text:counter id="test_2" show="chars" excludeSpaces="true">
+            <h:outputText value="КАкой-то текст"/>
+        </text:counter>
+
+
+        <text:counter id="test_3" show="all">
+            <h:outputText value="A B C D"/>
+            <h:outputText value="Some teeext"/>
+            <h:outputText value="More teeext"/>
+        </text:counter>
+
+        <h:form>
+            <div class="button-container">
+                <h:commandButton class="navigation-button" styleClass="nav-button" action="to-main"
+                                 value="Вернуться на главную"/>
+            </div>
+        </h:form>
+    </div>
+</h:body>
+</html>
